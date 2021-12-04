@@ -1,12 +1,5 @@
-package org.psnbtech.entity;
-
 import java.awt.Graphics2D;
 import java.util.Random;
-
-import org.psnbtech.Game;
-import org.psnbtech.WorldPanel;
-import org.psnbtech.util.Vector2;
-
 /**
  * Represents an Asteroid within the game world.
  * @author Brendan Jones
@@ -17,62 +10,62 @@ public class Asteroid extends Entity {
 	/**
 	 * The minimum speed at which the asteroid can rotate.
 	 */
-	private static final double MIN_ROTATION = 0.0075;
+	public static final double MIN_ROTATION = 0.0075;
 	
 	/**
 	 * The maximum speed at which the asteroid can rotate.
 	 */
-	private static final double MAX_ROTATION = 0.0175;
+	public static final double MAX_ROTATION = 0.0175;
 	
 	/**
 	 * The variation between the asteroid rotation speeds.
 	 */
-	private static final double ROTATION_VARIANCE = MAX_ROTATION - MIN_ROTATION;
+	public static final double ROTATION_VARIANCE = MAX_ROTATION - MIN_ROTATION;
 	
 	/**
 	 * The minimum velocity at which the asteroid can move.
 	 */
-	private static final double MIN_VELOCITY = 0.75;
+	public static final double MIN_VELOCITY = 0.75;
 	
 	/**
 	 * The maximum velocity at which the asteroid can move.
 	 */
-	private static final double MAX_VELOCITY = 1.65;
+	public static final double MAX_VELOCITY = 1.65;
 	
 	/**
 	 * The variation between the asteroid velocities.
 	 */
-	private static final double VELOCITY_VARIANCE = MAX_VELOCITY - MIN_VELOCITY;
+	public static final double VELOCITY_VARIANCE = MAX_VELOCITY - MIN_VELOCITY;
 	
 	/**
 	 * The minimum distance from the player spawn that a new asteroid can spawn.
 	 */
-	private static final double MIN_DISTANCE = 200.0;
+	public static final double MIN_DISTANCE = 200.0;
 	
 	/**
 	 * The maximum distance from the player spawn that a new asteroid can spawn.
 	 */
-	private static final double MAX_DISTANCE = WorldPanel.WORLD_SIZE / 2.0;
+	public static final double MAX_DISTANCE = WorldPanel.WORLD_SIZE / 2.0;
 	
 	/**
 	 * The variation between the spawn distances.
 	 */
-	private static final double DISTANCE_VARIANCE = MAX_DISTANCE - MIN_DISTANCE;
+	public static final double DISTANCE_VARIANCE = MAX_DISTANCE - MIN_DISTANCE;
 	
 	/**
 	 * The number of updates to execute after spawning.
 	 */
-	private static final float SPAWN_UPDATES = 10;
+	public static final float SPAWN_UPDATES = 10;
 	
 	/**
 	 * The Size.
 	 */
-	private AsteroidSize size;
+	public AsteroidSize size;
 	
 	/**
 	 * The rotation speed.
 	 */
-	private double rotationSpeed;
+	public double rotationSpeed;
 	
 	/**
 	 * Creates a new Asteroid randomly in the world.
@@ -109,7 +102,7 @@ public class Asteroid extends Entity {
 	 * @param random The random instance.
 	 * @return The spawn point.
 	 */
-	private static Vector2 calculatePosition(Random random) {
+	public static Vector2 calculatePosition(Random random) {
 		Vector2 vec = new Vector2(WorldPanel.WORLD_SIZE / 2.0, WorldPanel.WORLD_SIZE / 2.0);
 		return vec.add(new Vector2(random.nextDouble() * Math.PI * 2).scale(MIN_DISTANCE + random.nextDouble() * DISTANCE_VARIANCE));
 	}
@@ -119,7 +112,7 @@ public class Asteroid extends Entity {
 	 * @param random The random instance.
 	 * @return The velocity.
 	 */
-	private static Vector2 calculateVelocity(Random random) {
+	public static Vector2 calculateVelocity(Random random) {
 		return new Vector2(random.nextDouble() * Math.PI * 2).scale(MIN_VELOCITY + random.nextDouble() * VELOCITY_VARIANCE);
 	}
 	

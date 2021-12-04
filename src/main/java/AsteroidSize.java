@@ -1,5 +1,3 @@
-package org.psnbtech.entity;
-
 import java.awt.Polygon;
 
 /**
@@ -27,7 +25,7 @@ public enum AsteroidSize {
 	/**
 	 * The number of points on the Asteroid.
 	 */
-	private static final int NUMBER_OF_POINTS = 5;
+	public static final int NUMBER_OF_POINTS = 5;
 	
 	/**
 	 * The polygon for this type of Asteroid.
@@ -49,7 +47,7 @@ public enum AsteroidSize {
 	 * @param radius The radius.
 	 * @param value The kill value.
 	 */
-	private AsteroidSize(double radius, int value) {
+	AsteroidSize(double radius, int value) {
 		this.polygon = generatePolygon(radius);
 		this.radius = radius + 1.0;
 		this.killValue = value;
@@ -60,7 +58,7 @@ public enum AsteroidSize {
 	 * @param radius The radius of the Polygon.
 	 * @return The generated Polygon.
 	 */
-	private static Polygon generatePolygon(double radius) {
+	public static Polygon generatePolygon(double radius) {
 		//Create an array to store the coordinates.
 		int[] x = new int[NUMBER_OF_POINTS];
 		int[] y = new int[NUMBER_OF_POINTS];

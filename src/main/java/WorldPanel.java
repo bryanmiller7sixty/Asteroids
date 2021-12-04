@@ -1,5 +1,3 @@
-package org.psnbtech;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -8,12 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
 import java.util.Iterator;
-
 import javax.swing.JPanel;
-
-import org.psnbtech.entity.Entity;
-import org.psnbtech.util.Vector2;
-
 /**
  * The {@code WorldPanel} is responsible for displaying the game to the user.
  * @author Brendan Jones
@@ -24,7 +17,7 @@ public class WorldPanel extends JPanel {
 	/**
 	 * Serial Version Unique Identifier.
 	 */
-	private static final long serialVersionUID = -5107151667799471396L;
+	public static final long serialVersionUID = -5107151667799471396L;
 
 	/**
 	 * The size of the world in pixels.
@@ -34,17 +27,17 @@ public class WorldPanel extends JPanel {
 	/**
 	 * The font used for the large text.
 	 */
-	private static final Font TITLE_FONT = new Font("Dialog", Font.PLAIN, 25);
+	public static final Font TITLE_FONT = new Font("Dialog", Font.PLAIN, 25);
 	
 	/**
 	 * The font used for the medium text.
 	 */
-	private static final Font SUBTITLE_FONT = new Font("Dialog", Font.PLAIN, 15);
+	public static final Font SUBTITLE_FONT = new Font("Dialog", Font.PLAIN, 15);
 
 	/**
 	 * The Game instance.
 	 */
-	private Game game;
+	public Game game;
 	
 	/**
 	 * Creates a new WorldPanel instance.
@@ -153,7 +146,7 @@ public class WorldPanel extends JPanel {
 	 * @param g The graphics object to draw to.
 	 * @param y The y offset.
 	 */
-	private void drawTextCentered(String text, Font font, Graphics2D g, int y) {
+	public void drawTextCentered(String text, Font font, Graphics2D g, int y) {
 		g.setFont(font);
 		g.drawString(text, WORLD_SIZE / 2 - g.getFontMetrics().stringWidth(text) / 2, WORLD_SIZE / 2 + y);
 	}
@@ -165,7 +158,7 @@ public class WorldPanel extends JPanel {
 	 * @param x The x coordinate to draw the entity at.
 	 * @param y The y coordinate to draw the entity at.
 	 */
-	private void drawEntity(Graphics2D g2d, Entity entity, double x, double y) {
+	public void drawEntity(Graphics2D g2d, Entity entity, double x, double y) {
 		g2d.translate(x, y);
 		double rotation = entity.getRotation();
 		if(rotation != 0.0f) {

@@ -1,108 +1,103 @@
-package org.psnbtech.entity;
-
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.psnbtech.Game;
-import org.psnbtech.WorldPanel;
-import org.psnbtech.util.Vector2;
 
 public class Player extends Entity {
-	
-	private static final double DEFAULT_ROTATION = -Math.PI / 2.0;
+
+	public static final double DEFAULT_ROTATION = -Math.PI / 2.0;
 	
 	/**
 	 * The magnitude of our ship's thrust.
 	 */
-	private static final double THRUST_MAGNITUDE = 0.0385;
+	public static final double THRUST_MAGNITUDE = 0.0385;
 	
 	/**
 	 * The maximum speed at which our ship can travel.
 	 */
-	private static final double MAX_VELOCITY_MAGNITUDE = 6.5;
+	public static final double MAX_VELOCITY_MAGNITUDE = 6.5;
 	
 	/**
 	 * The speed at which the ship rotates.
 	 */
-	private static final double ROTATION_SPEED = 0.052;
+	public static final double ROTATION_SPEED = 0.052;
 	
 	/**
 	 * The factor at which our ship slows down.
 	 */
-	private static final double SLOW_RATE = 0.995;
+	public static final double SLOW_RATE = 0.995;
 	
 	/**
 	 * The maximum number of bullets that can be fired at once.
 	 */
-	private static final int MAX_BULLETS = 4;
+	public static final int MAX_BULLETS = 4;
 	
 	/**
 	 * The number of cycles that must elapse between shots.
 	 */
-	private static final int FIRE_RATE = 4;
+	public static final int FIRE_RATE = 4;
 	
 	/**
 	 * The maximum number of shots that can be fired consecutively before
 	 * overheating.
 	 */
-	private static final int MAX_CONSECUTIVE_SHOTS = 8;
+	public static final int MAX_CONSECUTIVE_SHOTS = 8;
 	
 	/**
 	 * The number of cycles that must elapse before we stop overheating.
 	 */
-	private static final int MAX_OVERHEAT = 30;
+	public static final int MAX_OVERHEAT = 30;
 	
 	/**
 	 * Whether the ship should apply thrust when it updates.
 	 */
-	private boolean thrustPressed;
+	public boolean thrustPressed;
 	
 	/**
 	 * Whether the ship should rotate to the left when it updates.
 	 */
-	private boolean rotateLeftPressed;
+	public boolean rotateLeftPressed;
 	
 	/**
 	 * Whether the ship should rotate to the right when it updates.
 	 */
-	private boolean rotateRightPressed;
+	public boolean rotateRightPressed;
 	
 	/**
 	 * Whether the ship should fire a bullet when it updates.
 	 */
-	private boolean firePressed;
+	public boolean firePressed;
 		
 	/**
 	 * Whether the ship is allowed to fire a bullet.
 	 */
-	private boolean firingEnabled;
+	public boolean firingEnabled;
 	
 	/**
 	 * The number of consecutive shots fired.
 	 */
-	private int consecutiveShots;
+	public int consecutiveShots;
 	
 	/**
 	 * The cooldown timer for firing.
 	 */
-	private int fireCooldown;
+	public int fireCooldown;
 	
 	/**
 	 * The cooldown timer for overheating.
 	 */
-	private int overheatCooldown;
+	public int overheatCooldown;
 	
 	/**
 	 * The current animation frame.
 	 */
-	private int animationFrame;
+	public int animationFrame;
 	
 	/**
 	 * The bullets that have been fired.
 	 */
-	private List<Bullet> bullets;
+	public List<Bullet> bullets;
 	
 	/**
 	 * Initializes a new Player instance.

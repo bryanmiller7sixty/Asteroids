@@ -1,5 +1,3 @@
-package org.psnbtech;
-
 import java.awt.BorderLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -8,13 +6,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-
 import javax.swing.JFrame;
-
-import org.psnbtech.entity.Asteroid;
-import org.psnbtech.entity.Entity;
-import org.psnbtech.entity.Player;
-import org.psnbtech.util.Clock;
 
 /**
  * The {@code Game} class is responsible for initializing and running the game.
@@ -26,74 +18,74 @@ public class Game extends JFrame {
 	/**
 	 * The Serial Version Unique Identifier.
 	 */
-	private static final long serialVersionUID = -3535839203174039672L;
+	public static final long serialVersionUID = -3535839203174039672L;
 
 	/**
 	 * The number of frame per second the game should run at.
 	 */
-	private static final int FRAMES_PER_SECOND = 60;
+	public static final int FRAMES_PER_SECOND = 60;
 	
 	/**
 	 * The number of nanoseconds that should elapse each frame. This is far more
 	 * accurate than using milliseconds.
 	 */
-	private static final long FRAME_TIME = (long)(1000000000.0 / FRAMES_PER_SECOND);
+	public static final long FRAME_TIME = (long)(1000000000.0 / FRAMES_PER_SECOND);
 	
 	/**
 	 * The number of frames that the "current level" message appears for.
 	 */
-	private static final int DISPLAY_LEVEL_LIMIT = 60;
+	public static final int DISPLAY_LEVEL_LIMIT = 60;
 	
 	/**
 	 * The value that {@code deathCooldown} will be set to upon player death.
 	 */
-	private static final int DEATH_COOLDOWN_LIMIT = 200;
+	public static final int DEATH_COOLDOWN_LIMIT = 200;
 	
 	/**
 	 * The value for {@code deathCooldown} that the Player respawns.
 	 */
-	private static final int RESPAWN_COOLDOWN_LIMIT = 100;
+	public static final int RESPAWN_COOLDOWN_LIMIT = 100;
 	
 	/**
 	 * The value for {@code deathCooldown} that the player becomes vulnerable,
 	 * and regains the ability to fire.
 	 */
-	private static final int INVULN_COOLDOWN_LIMIT = 0;
+	public static final int INVULN_COOLDOWN_LIMIT = 0;
 	
 	/**
 	 * The value that {@code resetCooldown} is set to when the player loses.
 	 */
-	private static final int RESET_COOLDOWN_LIMIT = 120;
+	public static final int RESET_COOLDOWN_LIMIT = 120;
 		
 	/**
 	 * The WorldPanel instance.
 	 */
-	private WorldPanel world;
+	public WorldPanel world;
 	
 	/**
 	 * The Clock instance for handling the game updates.
 	 */
-	private Clock logicTimer;
+	public Clock logicTimer;
 	
 	/**
 	 * The Random instance for spawning entities.
 	 */
-	private Random random;
+	public Random random;
 	
 	/**
 	 * The list of Entity objects that exist in the game world.
 	 */
-	private List<Entity> entities;
+	public List<Entity> entities;
 	
 	/**
 	 * The list of Entity objects that need to be added to the game world.
 	 */
-	private List<Entity> pendingEntities;
+	public List<Entity> pendingEntities;
 		
 	/**
 	 * The Player instance.
 	 */
-	private Player player;
+	public Player player;
 	
 	/**
 	 * <p>The death cooldown timer is responsible for spreading a Player's death
@@ -109,13 +101,13 @@ public class Game extends JFrame {
 	 * will be vulnerable to collisions and the Player will regain the ability to
 	 * shoot.</p>
 	 */
-	private int deathCooldown;
+	public int deathCooldown;
 	
 	/**
 	 * <p>The show level cooldown timer is responsible for displaying the current
 	 * level briefly after the previous level has been completed.</p>
 	 */
-	private int showLevelCooldown;
+	public int showLevelCooldown;
 	
 	/**
 	 * <p>The reset cooldown prevents the game from instantly restarting if the
@@ -125,37 +117,37 @@ public class Game extends JFrame {
 	 * <p>This timer adds a short delay that must expire before the game can
 	 * be reset, giving the player time to react.</p>
 	 */
-	private int restartCooldown;
+	public int restartCooldown;
 	
 	/**
 	 * The current score.
 	 */
-	private int score;
+	public int score;
 	
 	/**
 	 * The number of lives the Player has left.
 	 */
-	private int lives;
+	public int lives;
 	
 	/**
 	 * The current level the player is on.
 	 */
-	private int level;
+	public int level;
 	
 	/**
 	 * Whether or not the game is over.
 	 */
-	private boolean isGameOver;
+	public boolean isGameOver;
 	
 	/**
 	 * Whether or not the player has pressed anything to restart the game.
 	 */
-	private boolean restartGame;
+	public boolean restartGame;
 	
 	/**
 	 * Create a new instance of the Game.
 	 */
-	private Game() {
+	public Game() {
 		//Initialize the window's basic properties.
 		super("Asteroids");
 		setLayout(new BorderLayout());
@@ -274,7 +266,7 @@ public class Game extends JFrame {
 	 * Check the user input to see if the key should be used to restart the game.
 	 * @return Whether or not the key restarted the game.
 	 */
-	private boolean checkForRestart() {
+	public boolean checkForRestart() {
 		boolean restart = (isGameOver && restartCooldown <= 0);
 		if(restart) {
 			restartGame = true;
@@ -285,7 +277,7 @@ public class Game extends JFrame {
 	/**
 	 * Starts the game running, and enters the main game loop.
 	 */
-	private void startGame() {
+	public void startGame() {
 		//Initialize the engine's variables.
 		this.random = new Random();
 		this.entities = new LinkedList<Entity>();
@@ -332,7 +324,7 @@ public class Game extends JFrame {
 	/**
 	 * Update the game entities and states.
 	 */
-	private void updateGame() {
+	public void updateGame() {
 		/*
 		 * Here we add any pending entities to the world.
 		 * 
@@ -454,7 +446,7 @@ public class Game extends JFrame {
 	/**
 	 * Set the game's variables to their default values.
 	 */
-	private void resetGame() {
+	public void resetGame() {
 		this.score = 0;
 		this.level = 0;
 		this.lives = 3;
@@ -467,7 +459,7 @@ public class Game extends JFrame {
 	/**
 	 * Removes all entities, with the exception of the player, from the world.
 	 */
-	private void resetEntityLists() {
+	public void resetEntityLists() {
 		pendingEntities.clear();
 		entities.clear();
 		entities.add(player);
@@ -477,7 +469,7 @@ public class Game extends JFrame {
 	 * Determines whether or not any asteroids still exist in the world.
 	 * @return Whether or not all of the enemies are dead.
 	 */
-	private boolean areEnemiesDead() {
+	public boolean areEnemiesDead() {
 		for(Entity e : entities) {
 			if(e.getClass() == Asteroid.class) {
 				return false;

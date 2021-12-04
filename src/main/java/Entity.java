@@ -1,10 +1,4 @@
-package org.psnbtech.entity;
-
 import java.awt.Graphics2D;
-
-import org.psnbtech.Game;
-import org.psnbtech.WorldPanel;
-import org.psnbtech.util.Vector2;
 
 /**
  * Represents an Entity within the game world.
@@ -16,32 +10,32 @@ public abstract class Entity {
 	/**
 	 * The position of this entity.
 	 */
-	protected Vector2 position;
+	public Vector2 position;
 	
 	/**
 	 * The velocity of this entity.
 	 */
-	protected Vector2 velocity;
+	public Vector2 velocity;
 	
 	/**
 	 * The rotation of this entity.
 	 */
-	protected double rotation;
+	public double rotation;
 	
 	/**
 	 * The collision radius.
 	 */
-	protected double radius;
+	public double radius;
 	
 	/**
 	 * Flags that the entity needs to be removed from the game.
 	 */
-	private boolean needsRemoval;
+	public boolean needsRemoval;
 	
 	/**
 	 * The number of points the player earns when this entity is destroyed.
 	 */
-	private int killScore;
+	public int killScore;
 	
 	/**
 	 * Creates a new Entity instance.

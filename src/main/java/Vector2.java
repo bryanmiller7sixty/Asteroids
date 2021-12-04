@@ -1,5 +1,3 @@
-package org.psnbtech.util;
-
 /**
  * Vector2 represents a 2-dimensional vector.
  * @author Brendan Jones
